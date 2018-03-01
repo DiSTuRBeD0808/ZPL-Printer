@@ -10,5 +10,6 @@ namespace ZPL_Printer.Enums
   {
     Gr = 1,
     Pick = 2,
+    Exit = 3,
   }
 }

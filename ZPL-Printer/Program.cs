@@ -12,25 +12,37 @@ namespace ZPL_Printer
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("This program is meant to  create/send ZPL code to print labels from a Zebra printer");
-      Console.WriteLine();
-      Console.WriteLine("Select a label type to print:");
-      Console.WriteLine("1 = Goods Receipt");
-      Console.WriteLine("2 = Pick Label");
-
-      int select = Convert.ToInt32(Console.ReadLine());
-
-      switch (select)
+      var exit = false;
+      do
       {
-        case (int)LabelEnums.Gr:
-          new grLabel();
-          break;
-        default: Console.WriteLine("That invalid selection, please try again.");
-          break;
+        Console.WriteLine("This program is meant to  create/send ZPL code to print labels from a Zebra printer");
+        Console.WriteLine();
+        Console.WriteLine("Select a label type to print:");
+        Console.WriteLine("1 = Goods Receipt");
+        Console.WriteLine("2 = Pick Label");
+        Console.WriteLine("3 = Exit");
 
-      }
+        int select = Convert.ToInt32(Console.ReadLine());
 
-      Console.ReadKey();
+        switch (select)
+        {
+          case (int) LabelEnums.Gr:
+            new grLabel().ProcessBarcode();
+            break;
+          case (int) LabelEnums.Exit:
+            exit = true;
+            break;
+          default:
+            Console.WriteLine("That invalid selection, please try again.");
+            break;
+        }
+
+        if (!exit)
+        {
+          Console.Clear();
+        }
+
+      } while (!exit);
     }
   }
 }
