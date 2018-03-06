@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ZPL_Printer.Enums;
 
 namespace ZPL_Printer
 {
@@ -22,20 +21,30 @@ namespace ZPL_Printer
         Console.WriteLine("2 = Pick Label");
         Console.WriteLine("3 = Exit");
 
-        int select = Convert.ToInt32(Console.ReadLine());
-
-        switch (select)
+        bool @continue = false;
+        do
         {
-          case (int) LabelEnums.Gr:
-            new grLabel().ProcessBarcode();
-            break;
-          case (int) LabelEnums.Exit:
-            exit = true;
-            break;
-          default:
-            Console.WriteLine("That invalid selection, please try again.");
-            break;
-        }
+          var select = Console.ReadKey(true).Key;
+
+          switch (select)
+          {
+            case ConsoleKey.D1:
+              new grLabel().ProcessBarcode();
+              @continue = true;
+              break;
+            case ConsoleKey.D2:
+              @continue = true;
+              break;
+            case ConsoleKey.D3:
+              @continue = true;
+              exit = true;
+              break;
+              default:
+              Console.WriteLine("Invalid selection, please try again.");
+              @continue = false;
+              break;
+          }
+        } while (!@continue);
 
         if (!exit)
         {

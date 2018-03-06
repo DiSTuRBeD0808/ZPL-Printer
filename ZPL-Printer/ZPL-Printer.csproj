@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\LabelEnums.cs" />
     <Compile Include="grLabel.cs" />
     <Compile Include="Print.cs" />
     <Compile Include="Program.cs" />
