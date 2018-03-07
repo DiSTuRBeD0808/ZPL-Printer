@@ -33,6 +33,7 @@ namespace ZPL_Printer
               @continue = true;
               break;
             case ConsoleKey.D2:
+              new pickLabel().ProcessBarcode();
               @continue = true;
               break;
             case ConsoleKey.D3:
