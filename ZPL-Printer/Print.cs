@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
+using System.Net;
+using static System.Configuration.ConfigurationSettings;
 
 namespace ZPL_Printer
 {
@@ -17,9 +20,9 @@ namespace ZPL_Printer
 
       
       Console.WriteLine("Printing ZPL... Check printer");
-      
-     //Printer IP Address and communication port
-      string ipAddress = "192.168.1.201";
+
+      //Printer IP Address and communication port
+      string ipAddress = AppSettings["ipaddress"];
       int port = 9100;
 
       // ZPL Command(s)

@@ -4,6 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Specialized;
+using System.Net;
+using static System.Configuration.ConfigurationSettings;
 
 namespace ZPL_Printer
 {
@@ -11,7 +14,9 @@ namespace ZPL_Printer
   {
     static void Main(string[] args)
     {
+      string ipAddress = AppSettings["ipaddress"];
       var exit = false;
+
       do
       {
         Console.WriteLine("This program is meant to  create/send ZPL code to print labels from a Zebra printer");
@@ -20,6 +25,12 @@ namespace ZPL_Printer
         Console.WriteLine("1 = Goods Receipt");
         Console.WriteLine("2 = Pick Label");
         Console.WriteLine("3 = Exit");
+
+
+
+        Console.WriteLine(" ");
+        Console.Write("Current Printer IP: ");
+        Console.WriteLine(ipAddress);
 
         bool @continue = false;
         do
